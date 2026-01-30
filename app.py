@@ -25,21 +25,16 @@ nome = st.selectbox("Ciao! Chi sei oggi?", alunni)
 if nome != "Seleziona il tuo nome":
     st.header(f"Ciao {nome}! 👋")
     
-    # Sezione Esercizio del giorno
-    with st.expander("📖 Leggi la missione di oggi", expanded=True):
-        st.write("Scatta una foto chiara del tuo esercizio di italiano e caricala qui sotto!")
-        # Esempio di audio istruzione (puoi caricare un tuo file .mp3)
-        # st.audio("istruzioni.mp3") 
+    st.header("🕵️ Missione: I Cacciatori di Articoli")
 
-    # Caricamento file
-    foto = st.file_uploader("Premi qui per caricare la foto", type=['png', 'jpg', 'jpeg'])
-
-    if st.button("INVIA ALLA MAESTRA 🚀"):
-        if foto is not None:
-            # Simulazione salvataggio
-            st.balloons()
-            st.success(f"GRANDE {nome}! Compito inviato. Sei un campione! 🏆")
-            
-            # Qui inseriremo in futuro la funzione AI per analizzare la foto
-        else:
-            st.error("Ops! Non hai ancora selezionato la foto del quaderno.")
+with st.expander("📖 Leggi il compito di oggi", expanded=True):
+    st.write("""
+    **Istruzioni:**
+    Sul tuo quaderno, scrivi l'articolo determinativo giusto davanti a queste parole:
+    - ... zaino
+    - ... gatta
+    - ... alberi
+    - ... isola
+    
+    Poi scatta una foto e inviamela! 📸
+    """)
