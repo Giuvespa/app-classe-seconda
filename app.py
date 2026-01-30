@@ -53,6 +53,4 @@ if nome != "Seleziona il tuo nome":
     """, unsafe_allow_html=True)
     # --- FINE OPZIONE B ---
     
-    Poi scatta una foto e inviamela! 📸
-
-    """)
+   
