@@ -25,16 +25,34 @@ nome = st.selectbox("Ciao! Chi sei oggi?", alunni)
 if nome != "Seleziona il tuo nome":
     st.header(f"Ciao {nome}! 👋")
     
-    st.header("🕵️ Missione: I Cacciatori di Articoli")
+    # --- INIZIO OPZIONE B: SFIDE CASUALI ---
+    st.subheader("🕵️ La tua Sfida di oggi")
+    
+    # Lista delle possibili sfide (puoi aggiungerne quante ne vuoi!)
+    sfide = [
+        "Scrivi l'articolo giusto per: **zaino, amica, alberi, gnomo**.",
+        "Trova gli articoli per: **stivale, isola, campioni, zaini**.",
+        "Metti l'articolo a: **scatola, imbuto, occhiali, scoiattolo**.",
+        "Cerca l'articolo per: **aquilone, orologio, scarpe, specchio**."
+    ]
 
-with st.expander("📖 Leggi il compito di oggi", expanded=True):
-    st.write("""
-    **Istruzioni:**
-    Sul tuo quaderno, scrivi l'articolo determinativo giusto davanti a queste parole:
-    - ... zaino
-    - ... gatta
-    - ... alberi
-    - ... isola
+    # Usiamo lo 'session_state' di Streamlit per far sì che la sfida non cambi 
+    # ogni volta che il bambino carica la foto
+    if 'sfida_corrente' not in st.session_state:
+        st.session_state.sfida_corrente = sfide[0]
+
+    if st.button("🎲 GENERA UNA NUOVA SFIDA"):
+        import random
+        st.session_state.sfida_corrente = random.choice(sfide)
+
+    # Box colorato che mostra la sfida scelta
+    st.markdown(f"""
+    <div style="background-color: #fff3e0; padding: 20px; border-radius: 15px; border-left: 10px solid #ff9800;">
+        <p style="font-size: 18px;">{st.session_state.sfida_corrente}</p>
+    </div>
+    """, unsafe_allow_html=True)
+    # --- FINE OPZIONE B ---
     
     Poi scatta una foto e inviamela! 📸
+
     """)
